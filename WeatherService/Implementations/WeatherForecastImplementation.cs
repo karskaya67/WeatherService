@@ -2,13 +2,15 @@
 {
     public class WeatherForecastImplementation
     {
-        internal static WeatherForecast GetWeatherForecast()
+        internal static WeatherForecast GetWeatherForecast(string postalCode)
         {
             //todo: retreive current temperature from:
             //https://www.weatherbit.io/api/swaggerui/weather-api-v2#!/Current32Weather32Data/get_current_postal_code_postal_code
-            //using API Key: 1824631bbfa74729aac7d2d2f1dfdd76
+            //using API Key: da024557070548d8af52af6b7a5ac763
 
-            return null;
+            WeatherForecast forecast = new WeatherForecast();
+
+            return forecast;
         }
     }
 }

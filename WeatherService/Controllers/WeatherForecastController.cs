@@ -19,9 +19,9 @@ namespace WeatherService.Controllers
         }
 
         [HttpGet(Name = "GetForecast")]
-        public WeatherForecast Get()
+        public WeatherForecast Get([FromQuery] string postalCode)
         {
-            WeatherForecast forecast = WeatherService.Implementations.WeatherForecastImplementation.GetWeatherForecast();
+            WeatherForecast forecast = WeatherService.Implementations.WeatherForecastImplementation.GetWeatherForecast(postalCode);
 
             //todo: set Summary value on forecast response using Summaries data dictionary
 
