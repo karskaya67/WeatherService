@@ -23,9 +23,24 @@ namespace WeatherService.Controllers
         {
             WeatherForecast forecast = WeatherService.Implementations.WeatherForecastImplementation.GetWeatherForecast(postalCode);
 
-            //todo: set Summary value on forecast response using Summaries data dictionary
+            forecast.Summary = GetWeatherSummary(forecast.Temperature.Celsius);
 
             return forecast;
+        }
+
+        static string GetWeatherSummary(double temperature)
+        {
+            int closestKey = 0;
+
+            foreach (var key in Summaries.Keys)
+            {
+                if (Math.Abs(key - temperature) < Math.Abs(closestKey - temperature))
+                {
+                    closestKey = key;
+                }
+            }
+
+            return Summaries[closestKey];
         }
     }
 }
